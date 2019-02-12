@@ -35,8 +35,17 @@
     <input type="submit" value="testRest PUT"/>
 </form>
 <br>
-<<a href="/springmvc/testRequestPara?userName=ljj&age=23">Test RequestPara</a>
+<a href="/springmvc/testRequestPara?userName=ljj&age=23">Test RequestPara</a>
 <br><br>
 <a href="/springmvc/testRequestHeader">Test RequestPara</a>
+<br><br>
+<a href="/springmvc/testCookieValue">testCookieValue</a>
+<br><br>
+<form action="/springmvc/testPojo">
+    age:<input type="txt" name="age"><br>
+    userName:<input type="text" name="userName"><br>>
+    city:<input type="txt" name="address.city"><br>
+    <input type="submit" value="Submit"/>
+</form>
 </body>
 </html>
