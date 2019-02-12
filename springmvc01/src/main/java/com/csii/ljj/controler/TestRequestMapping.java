@@ -1,5 +1,6 @@
 package com.csii.ljj.controler;
 
+import com.csii.ljj.entity.User;
 import com.sun.org.apache.xpath.internal.operations.Variable;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,21 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TestRequestMapping {
     public static final  String SUCCESS = "success";
+
+    @RequestMapping("/testPojo")
+    public String testPojo(User user) {
+        System.out.println(user);
+        return SUCCESS;
+    }
+
+    /**
+     * @CookieValue(value="JSESSIONID"） 获取cookie里面的东西
+     * */
+    @RequestMapping("/testCookieValue")
+    public String testCookieValue(@CookieValue(value="JSESSIONID") String str) {
+        System.out.println("CookieValur = "+ str);
+        return SUCCESS;
+    }
 
     /**
      * 请求头获注解获取值
