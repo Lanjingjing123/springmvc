@@ -1,0 +1,35 @@
+1. 配置web.xml
+     <!--配置DispatcherServlet-->
+      <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--配置DispatcherServlet的一个初始化参数，配置springmvc的配置文件位置-->
+        <init-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+      </servlet>
+
+      <!--拦截所有请求-->
+      <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+      </servlet-mapping>
+2. 配置springmvc.xml
+    <!--配置扫描的包-->
+    <context:component-scan base-package="com.csii.ljj.controler"></context:component-scan>
+    <!--配置视图解析器：如何把handler的方法返回值解析为实际的视图-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+3. 在controler中使用 注解 @Controler 声明类为控制器，使用@RequestMapping作为视图解析器
+                                         /**
+                                            * 1.使用@RequestMapping 注解来映射请求的URL
+                                            * 2. 返回值通过视图解析器解析为实际的物理视图，对于InternalResourceViewResolver视图解析器，会做如下操作
+                                            * 前缀 prefix +  retuenVal + suffix后缀
+                                            * */
+                                           @RequestMapping("/helloWorld") ----这里的/helloworld为客户端的请求,
+                                           支持请求方法--- @RequestMapping(value ="/testMethod",method = RequestMethod.POST)
+                                            @RequestMapping 支持通配符，支持占位符，为支持Reset风格具有里程碑意义：
+                                                             @RequestMapping("/*/{id}")
