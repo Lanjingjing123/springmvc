@@ -1,15 +1,50 @@
 package com.csii.ljj.controler;
 
 import com.csii.ljj.entity.User;
-import com.sun.org.apache.xpath.internal.operations.Variable;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequestMapping("/springmvc")
 @Controller
 public class TestRequestMapping {
     public static final  String SUCCESS = "success";
+
+    @RequestMapping("/testMap")
+    public String testMap(Map<String, Object> map) {
+        map.put("names", Arrays.asList("tom","jack","henry"));
+        return SUCCESS;
+    }
+
+
+    /**
+     * ModelAndView的使用
+     * @return
+     */
+    @RequestMapping("/testModelAndView")
+    public ModelAndView testModelAndView() {
+        String viewName = SUCCESS;
+        ModelAndView modelAndView = new ModelAndView(viewName);
+        //添加模型数据到ModelAndView中
+        modelAndView.addObject("time",new Date());
+
+        return modelAndView;
+    }
+
+    @RequestMapping("/testServlet")
+    public void testServlet(HttpServletRequest request, HttpServletResponse response, Writer out) throws IOException {
+        System.out.println(request+","+response+"，");
+        out.write("hellow SpringMVC!");
+    }
 
     @RequestMapping("/testPojo")
     public String testPojo(User user) {
