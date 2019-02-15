@@ -19,8 +19,16 @@ import java.util.Map;
 public class TestRequestMapping {
     public static final  String SUCCESS = "success";
 
+    /**
+     * 目标方法可以添加Map(实际上也是Model类型或ModelMap类型)类型参数，
+     * jsp中同样可以获得该参数的value（原理是 Map转换成了ModelMap类型）
+     * 这些模型底层的是放进 request 里面
+     * @param map
+     * @return
+     */
     @RequestMapping("/testMap")
     public String testMap(Map<String, Object> map) {
+        System.out.println(map.getClass());
         map.put("names", Arrays.asList("tom","jack","henry"));
         return SUCCESS;
     }

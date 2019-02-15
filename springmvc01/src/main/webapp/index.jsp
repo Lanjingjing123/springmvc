@@ -47,5 +47,24 @@
     city:<input type="txt" name="address.city"><br>
     <input type="submit" value="Submit"/>
 </form>
+<<br>
+<a href="/springmvc/testServlet">Test Servlet</a>
+<br>
+<a href="/springmvc/testModelAndView">Test ModelAndView</a>
+<br>
+<a href="/springmvc/testMap">Test Map</a>
+<br>
+<a href="/SpringMVCsession/testSessionAttributes">Test TestSessionAttributes</a>
+<br>
+<%-- id=1,--%>
+<form action="/testModel/testModelAttr" method="post">
+    <input type="hidden" name="id" value="1">
+    <%--<input type="text" name="userName" value="Tom">--%>
+    <input type="text" name="age" value="23">
+    <input type="text" name="address.city" value="sichuan">
+    <input type="submit" value="Submit">
+</form>
+
+
 </body>
 </html>

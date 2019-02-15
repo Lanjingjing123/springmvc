@@ -13,6 +13,24 @@
 <body>
     <div>
         <input  value="12345" type="button"/>
+        <br>
+        成功跳转！！！
+        <br>
+        time:${requestScope.time }
+        <br>
+        names: ${requestScope.names}
+        <br>
+
+        RequestUser: ${requestScope.user}
+        <br>
+        SessionUser: ${sessionScope.user}
+        <br>
+
+        Request Sex: ${requestScope.sex}
+        <br>
+        Session Sex: ${sessionScope.sex}
     </div>
+
+
 </body>
 </html>
