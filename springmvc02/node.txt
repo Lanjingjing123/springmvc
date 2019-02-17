@@ -1,0 +1,5 @@
+##### 添加操作 涉及springMVC技术######
+1. 显示目标页面，get请求和post请求 uri是一致的
+2. input.jsp中要显示部门信息，需要在请求input.jsp这个Controler中将部门信息放进Request里面
+3. input.jsp使用了<form:form>表单标签，表单标签需要和pojo完全一致，默认bean为command，需要设置属性modelAttribute= pojo（bean的名字）；
+4. 添加需要传入 pojo类型的参数进入；
