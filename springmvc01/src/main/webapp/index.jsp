@@ -63,8 +63,11 @@
     <input type="text" name="age" value="23">
     <input type="text" name="address.city" value="sichuan">
     <input type="submit" value="Submit">
+
 </form>
-
-
+<br>
+<a href="/springView/testMyView">Test View</a>
+<br>
+<a href="/springRedirect/testRedirect">Test Redirect</a>
 </body>
 </html>
