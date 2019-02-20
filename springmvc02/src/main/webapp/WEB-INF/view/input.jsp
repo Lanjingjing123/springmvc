@@ -8,6 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Input Page</title>
@@ -23,9 +24,17 @@
         若没有指定改属性，则默认从request域对象中读取command的表单bean，
         若改属性也没有，则会出错。
 --%>
-<form:form action="/emp" method="POST"  modelAttribute="employee">
+<form:form action="${pageContext.request.contextPath}/emp" method="POST"  modelAttribute="employee">
     <%--path属性对应 html表单的name属性值--%>
-    LastName:<form:input path="lastName"></form:input>
+    <c:if test="${ employee.id == null}">
+        LastName:<form:input path="lastName"></form:input>
+    </c:if>
+    <%--ID设置为隐藏属性，隐藏域设置为PUT--%>
+    <c:if test="${employee.id != null}">
+        <form:hidden path="id"></form:hidden>
+        <input type="hidden" name="_method" value="PUT">
+    </c:if>
+
     <br>
     Email:<form:input path="email"></form:input>
     <br>
@@ -43,6 +52,22 @@
                             items="${departments}" itemLabel="departmentName"  itemValue="id">
 
     </form:select>
+    <br>
+    <%--
+        1. 数据类型转换
+        2. 数据类型格式化
+        3. 数据校验
+            1）如何校验？注解？
+                ①使用JSR 303验证标准
+                ②使用hibernate validator验证框架
+                ③在SpringMVC配置文件中添加<mvc:annotation-driven/>注解
+                ④ 需要在bean的属性上添加对应注解
+                ⑤在目标方法bean类型的前面添加@Valid注解
+            2）验证出错转向一个页面？
+            3）错误消息？如何显示，如何把错误信息国际化
+    --%>
+    Birth:<form:input path="birth"/>
+    <br>
     <input type="submit" value="Submit">
 </form:form>
 </body>

@@ -1,6 +1,9 @@
 package com.csii.ljj.springmvc.entity;
 
-import org.springframework.stereotype.Component;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 
 public class Employee {
@@ -9,6 +12,17 @@ public class Employee {
     private String email;
     private String gender;
     private Department department;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date birth;
+
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
     public Department getDepartment() {
         return department;
@@ -59,5 +73,17 @@ public class Employee {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", department=" + department +
+                ", birth=" + birth +
+                '}';
     }
 }
