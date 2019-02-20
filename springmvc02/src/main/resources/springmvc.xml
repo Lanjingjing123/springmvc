@@ -12,6 +12,15 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <mvc:interceptors>
+        <!--配置自定义的拦截器-->
+        <bean class="com.csii.ljj.springmvc.filter.FirstInterceptor"></bean>
+        <!--配置拦截器（不）拦截的路径-->
+        <mvc:interceptor>
+            <mvc:mapping path="/emps"/>
+            <bean class="com.csii.ljj.springmvc.filter.SecondInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!--处理静态资源的处理类，不加此配置，静态资源请求会被web.xml配置的进行拦截，找对应的映射，然而静态是不会有映射的-->
     <mvc:default-servlet-handler></mvc:default-servlet-handler>
 

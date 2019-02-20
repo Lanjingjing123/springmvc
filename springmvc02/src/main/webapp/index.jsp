@@ -52,7 +52,8 @@
     Desc: <input type="text" name="desc"/>
     <input type="submit" value="Submit"/>
 </form>
-
+<br>
+<a href="testHandlerException?i=1">Test HandlerException</a>
 </body>
 
 </html>
