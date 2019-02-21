@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HandlerException {
 
-    @ExceptionHandler(ArithmeticException.class)
-    public ModelAndView handleArithmenticException(Exception ex){
-        System.out.println("出异常了"+ex);
-        String viewName = "error";
-        ModelAndView modelAndView = new ModelAndView(viewName);
-        modelAndView.addObject("exception",ex);
-        return modelAndView;
-    }
+//    @ExceptionHandler(ArithmeticException.class)
+//    public ModelAndView handleArithmenticException(Exception ex){
+//        System.out.println("出异常了"+ex);
+//        String viewName = "error";
+//        ModelAndView modelAndView = new ModelAndView(viewName);
+//        modelAndView.addObject("exception",ex);
+//        return modelAndView;
+//    }
 
     @RequestMapping("/testHandlerException")
     public String testHandlerException(@RequestParam("i") Integer i ){

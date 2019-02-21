@@ -42,4 +42,7 @@
 1. 自定义拦截器(FirstInterceptor),用标签：<mvc:interceptor>
 
 ################## 异常处理###########################
+下面两个注解用于处理异常
+@ControllerAdvice
+@ExceptionHandler
 
