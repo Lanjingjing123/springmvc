@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<order2>
+    <price>45.67</price>
+    <Products>
+        <product>
+            <id>11021</id>
+            <name>Apple</name>
+        </product>
+        <product>
+            <id>11022</id>
+            <name>Banana</name>
+        </product>
+    </Products>
+</order2>
