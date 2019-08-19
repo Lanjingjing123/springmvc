@@ -8,7 +8,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
-
+import org.springframework.web.client.RestTemplate;
 
 
 import javax.xml.bind.JAXBContext;
@@ -69,6 +69,10 @@ public class HttpClientTest {
 
         // 创建Post请求
         HttpPost httpPost = new HttpPost(url);
+
+        RestTemplate rs = new RestTemplate();
+
+
 
         // 响应模型
         CloseableHttpResponse response = null;

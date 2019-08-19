@@ -6,6 +6,7 @@ import javax.xml.bind.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.util.*;
 
 public class simpleBeanToXmlTest {
@@ -51,26 +52,32 @@ public class simpleBeanToXmlTest {
     }
 
 
-    public  void xmlTojava() throws Exception {
+    public  void xmlTojava(String xml) throws Exception {
         // 获取JAXB的上下文环境，需要传入具体的 Java bean -> 这里使用Student
         JAXBContext context = JAXBContext.newInstance(Order2.class);
         // 创建 UnMarshaller 实例
         Unmarshaller unmarshaller = context.createUnmarshaller();
         // 加载需要转换的XML数据 -> 这里使用InputStream，还可以使用File，Reader等
-        InputStream stream = new FileInputStream(new File("E:\\idea_project\\springmvc\\springmvc02\\data\\test.xml"));
+//        InputStream stream = new FileInputStream(new File("E:\\idea_project\\springmvc\\springmvc02\\data\\test.xml"));
+        StringReader sr = new StringReader(xml);
 //        Document
         // 将XML数据序列化 -> 该方法的返回值为Object基类，需要强转类型
-        Order2 order2 = (Order2) unmarshaller.unmarshal(stream);
+        Order2 order2 = (Order2) unmarshaller.unmarshal(sr);
         // 将结果打印到控制台
         System.out.println(order2);
     }
 
     @Test
     public void test3(){
+        String xml = "";
         try {
-            xmlTojava();
+            xmlTojava(xml);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }
