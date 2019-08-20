@@ -48,7 +48,7 @@ public class Test {
         StringWriter sw = new StringWriter();
         m.marshal(t, sw);
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);//是否格式化
-        m.marshal(t, new FileOutputStream("D:\\spring\\springmvc\\springmvc02\\data\\test.xml"));
+        m.marshal(t, new FileOutputStream("E:\\idea_project\\springmvc\\springmvc02\\data\\test.xml"));
         return sw;
     }
 
@@ -67,7 +67,7 @@ public class Test {
         SmsBody smsBody = new SmsBody();
         // 新增一个List
         List<LnIouNoInfo> lnIouNoInfos = new LinkedList<>();
-        LnIouNoInfo lnIouNoInfo = new LnIouNoInfo("ljj3006",new BigDecimal(100.23),new BigDecimal(200.33));
+        LnIouNoInfo lnIouNoInfo = new LnIouNoInfo("ljj3006",new BigDecimal(100.23).setScale(2,BigDecimal.ROUND_DOWN),new BigDecimal(200.33).setScale(2,BigDecimal.ROUND_DOWN));
         lnIouNoInfos.add(lnIouNoInfo);
 
         smsBody.setContent("类容讷讷");

@@ -223,7 +223,7 @@ public class XmlMap {
 
         result.put("Data", map);
 //        System.out.println(createXmlByMap(result));
-//        System.out.println(createXmlByMap("Parent", result));
+        System.out.println(createXmlByMap("Parent", result));
 //        System.out.println(createXmlByMap("Parent", result,true));
         System.out.println(createMapByXml(createXmlByMap(result)));
     }

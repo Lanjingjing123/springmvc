@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<order2>
-    <price>45.67</price>
-    <Products>
-        <product>
-            <id>11021</id>
-            <name>Apple</name>
-        </product>
-        <product>
-            <id>11022</id>
-            <name>Banana</name>
-        </product>
-    </Products>
-</order2>
+<Request1>
+    <Head>
+        <TxCode>1610</TxCode>
+    </Head>
+    <Body>
+        <InstitutionID>0098</InstitutionID>
+        <BatchNo>1</BatchNo>
+        <TotalAmount>200000.02</TotalAmount>
+        <TotalCount>3</TotalCount>
+        <Remark>测试</Remark>
+        <Item>
+            <BankNoByPBC>
+                <ItemNo>1234567890</ItemNo>
+                <AccountType>10</AccountType>
+                <AccountName>兰晶晶</AccountName>
+                <AccountNumber>0098012345</AccountNumber>
+            </BankNoByPBC>
+            <BankNoByPBC>
+                <ItemNo>987654321</ItemNo>
+                <AccountType>10</AccountType>
+                <AccountName>高祥康</AccountName>
+                <AccountNumber>0098000000</AccountNumber>
+            </BankNoByPBC>
+        </Item>
+    </Body>
+</Request1>
