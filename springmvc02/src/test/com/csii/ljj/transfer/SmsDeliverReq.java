@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 请求对象
  * @author xuejiangtao
- *
+ * Jul 25, 2013 9:34:26 PM
  */
 @XmlRootElement(name="SMSDELIVERREQ")
 public class SmsDeliverReq {
@@ -33,7 +33,16 @@ public class SmsDeliverReq {
         return smsBodys;
     }
 
+
     public void setSmsBodys(List<SmsBody> smsBodys) {
         this.smsBodys = smsBodys;
+    }
+
+    @Override
+    public String toString() {
+        return "SmsDeliverReq{" +
+                "reqHeader=" + reqHeader +
+                ", smsBodys=" + smsBodys +
+                '}';
     }
 }

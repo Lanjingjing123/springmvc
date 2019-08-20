@@ -1,8 +1,15 @@
 package com.csii.ljj.transfer;
 
+
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * 请求头对象
+ * @author xuejiangtao
+ * Jul 25, 2013 9:33:57 PM
+ */
 public class ReqHeader {
+
     /**
      * 系统编号
      */
@@ -43,5 +50,14 @@ public class ReqHeader {
     @XmlElement(name="REQNO")
     public void setReqNo(String reqNo) {
         this.reqNo = reqNo;
+    }
+
+    @Override
+    public String toString() {
+        return "ReqHeader{" +
+                "sysId='" + sysId + '\'' +
+                ", authCode='" + authCode + '\'' +
+                ", reqNo='" + reqNo + '\'' +
+                '}';
     }
 }

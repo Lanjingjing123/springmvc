@@ -1,19 +1,18 @@
 package com.csii.ljj.transfer;
 
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-
-
 
 public class Test {
 
@@ -27,6 +26,7 @@ public class Test {
      * @throws JAXBException
      */
     public static <T> T xmlToBean(String xml, T t) throws JAXBException {
+
         JAXBContext context = JAXBContext.newInstance(t.getClass());
         Unmarshaller um = context.createUnmarshaller();
         StringReader sr = new StringReader(xml);
@@ -48,7 +48,7 @@ public class Test {
         StringWriter sw = new StringWriter();
         m.marshal(t, sw);
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);//是否格式化
-        m.marshal(t, new FileOutputStream("E:\\idea_project\\springmvc\\springmvc02\\data\\test.xml"));
+        m.marshal(t, new FileOutputStream("D:\\spring\\springmvc\\springmvc02\\data\\test.xml"));
         return sw;
     }
 
@@ -65,9 +65,15 @@ public class Test {
         reqHeader.setSysId("jjj");
 
         SmsBody smsBody = new SmsBody();
+        // 新增一个List
+        List<LnIouNoInfo> lnIouNoInfos = new LinkedList<>();
+        LnIouNoInfo lnIouNoInfo = new LnIouNoInfo("ljj3006",new BigDecimal(100.23),new BigDecimal(200.33));
+        lnIouNoInfos.add(lnIouNoInfo);
+
         smsBody.setContent("类容讷讷");
         smsBody.setDestAddr("1589594");
         smsBody.setSourceAddr("9999");
+        smsBody.setLnIouNoInfoList(lnIouNoInfos);
 
         SmsBody smsBody1 = new SmsBody();
         smsBody1.setContent("asdf");
